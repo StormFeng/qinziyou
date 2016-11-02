@@ -100,7 +100,7 @@ public class HomeFragmentTopTpl extends BaseTpl<HomeFragmentMulBean> implements 
                 if(flag==0){
                     flag++;
                     for(int i=0;i<bean.topBean.getContent().getBanner().size();i++){
-                        images.add(FDDataUtils.getImageUrl(bean.topBean.getContent().getBanner().get(i).getBanner_pic_id(),300,500));
+                        images.add(FDDataUtils.getImageUrl(bean.topBean.getContent().getBanner().get(i).getBanner_pic_id(),800,1000));
                         activityIds.add(bean.topBean.getContent().getBanner().get(i).getActivity_id());
                         urls.add(bean.topBean.getContent().getBanner().get(i).getUrl());
                     }

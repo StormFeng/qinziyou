@@ -167,7 +167,7 @@ public class Fragment_ActivityDetai1 extends BaseFragment implements ApiCallback
         if (res.isOK()) {
             ActivityDetailBean bean = (ActivityDetailBean) res;
             for (int i = 0; i < bean.getContent().getPics().size(); i++) {
-                images.add(FDDataUtils.getImageUrl(bean.getContent().getPics().get(i), 300, 500));
+                images.add(FDDataUtils.getImageUrl(bean.getContent().getPics().get(i), 800, 1000));
             }
             bannerView.setImages(images.toArray());
             title = bean.getContent().getTitle();

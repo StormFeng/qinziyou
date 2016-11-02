@@ -85,7 +85,7 @@ public class ActivityWelcom extends BaseActivity implements OnClickListener {
         public void onApiSuccess(NetResult res, String tag) {
             if(res.isOK()){
                 AdvertiseBean bean = (AdvertiseBean) res;
-                ac.setImage(iv, FDDataUtils.getImageUrl(bean.getContent().getAdvertise_pic_id(),500,500));
+                ac.setImage(iv, FDDataUtils.getImageUrl(bean.getContent().getAdvertise_pic_id(),1500,1500));
                 url=bean.getContent().getAdvertise_url();
                 iv.setOnClickListener(listener);
             }else{

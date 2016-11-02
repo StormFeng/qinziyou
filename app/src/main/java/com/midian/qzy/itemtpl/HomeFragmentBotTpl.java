@@ -59,7 +59,7 @@ public class HomeFragmentBotTpl extends BaseTpl<HomeFragmentMulBean> implements 
     public void setBean(HomeFragmentMulBean bean, int position) {
         if (bean != null) {
             if (bean.getItemViewType() == 1) {
-                ac.setImage(ivBg, FDDataUtils.getImageUrl(bean.botBean.getCover_pic(),250,500));
+                ac.setImage(ivBg, FDDataUtils.getImageUrl(bean.botBean.getCover_pic(),800,1000));
                 tvTitle.setText(bean.botBean.getTitle());
                 tvType.setText(bean.botBean.getType_name());
                 tvName.setText(bean.botBean.getOrganization_name());

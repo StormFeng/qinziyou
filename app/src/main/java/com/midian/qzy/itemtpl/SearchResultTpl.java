@@ -59,7 +59,7 @@ public class SearchResultTpl extends BaseTpl<ActivitiesBean.Content> implements 
     @Override
     public void setBean(ActivitiesBean.Content bean, int position) {
         if (bean != null) {
-            ac.setImage(ivBg, FDDataUtils.getImageUrl(bean.getCover_pic(),500,300));
+            ac.setImage(ivBg, FDDataUtils.getImageUrl(bean.getCover_pic(),800,1000));
             tvTitle.setText(bean.getTitle());
             tvType.setText(bean.getType_name());
             tvName.setText(bean.getOrganization_name());

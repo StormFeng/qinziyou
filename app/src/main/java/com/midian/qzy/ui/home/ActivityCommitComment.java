@@ -153,7 +153,7 @@ public class ActivityCommitComment extends BaseActivity{
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, this.getCameraTempFile());
                     startActivityForResult(intent, REQUEST_CODE_CAPTURE_CAMEIA);
                 }else{
-                    UIHelper.t(_activity,"已禁止未来宝贝使用相机");
+                    UIHelper.t(_activity,"已禁止萌主使用相机");
                 }
                 break;
             case 1002:
@@ -163,14 +163,14 @@ public class ActivityCommitComment extends BaseActivity{
                     selector.count(3 - gridView.getChildCount());
                     selector.start(_activity, REQUEST_IMAGE);
                 }else{
-                    UIHelper.t(_activity,"已禁止未来宝贝读取照片");
+                    UIHelper.t(_activity,"已禁止萌主读取照片");
                 }
                 break;
             case 1003:
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.CAMERA}, 1001);
                 }else{
-                UIHelper.t(_activity,"已禁止未来宝贝读取照片");
+                UIHelper.t(_activity,"已禁止萌主读取照片");
             }
         }
     }
@@ -181,7 +181,7 @@ public class ActivityCommitComment extends BaseActivity{
                 Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
                 if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
                         Manifest.permission.CAMERA)) {
-                    UIHelper.t(_activity,"请在权限设置中允许未来宝贝使用相机");
+                    UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
                 } else {
                     ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1003);
                 }
@@ -236,7 +236,8 @@ public class ActivityCommitComment extends BaseActivity{
                     Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
                     if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
                             Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                        UIHelper.t(_activity,"请在权限设置中允许未来宝贝读取照片");
+//                        UIHelper.t(_activity,"请在权限设置中允许萌主读取照片");
+                        ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
                     } else {
                         ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
                     }
@@ -276,11 +277,9 @@ public class ActivityCommitComment extends BaseActivity{
                     temp=new File(nSelectPath.get(i));
                     file = Compressor.getDefault(this).compressToFile(temp);
                     pics.add(file);
-                    Log.d("wqf","PPPPPPPPPPPP");
                 }
             }else{
                 pics=null;
-                Log.d("wqf","KKKKKKKKKKKKKKKK");
             }
             try {
                 AppUtil.getPpApiClient(ac).addActivityComment(ac.user_id,CommentFragment.activity_id,str,pics,this);
