@@ -109,6 +109,7 @@ public class ActivityWelcom extends BaseActivity implements OnClickListener {
     public void onClick(View v) {
         super.onClick(v);
         v.setEnabled(false);
+        timer.cancel();
         UIHelper.jump(ActivityWelcom.this, MainActivity.class);
         ac.setBoolean("app", true);
         finish();
