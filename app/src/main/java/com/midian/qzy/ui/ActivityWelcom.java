@@ -1,14 +1,9 @@
 package com.midian.qzy.ui;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -45,7 +40,6 @@ public class ActivityWelcom extends BaseActivity implements OnClickListener {
         AppUtil.getPpApiClient(ac).getAdvertisePic(ac.getClientKey(),apiCallback);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1);
         alphaAnimation.setDuration(1000);
-//        alphaAnimation.setAnimationListener(aListener);
         iv.setAnimation(alphaAnimation);
         timer=new Timer();
         timerTask=new TimerTask() {
@@ -118,13 +112,6 @@ public class ActivityWelcom extends BaseActivity implements OnClickListener {
         UIHelper.jump(ActivityWelcom.this, MainActivity.class);
         ac.setBoolean("app", true);
         finish();
-    }
-
-    @Override
-    public void onParseError(String tag) {
-        super.onParseError(tag);
-        AppManager.getAppManager().appExit(_activity);
-        inApp();
     }
 
     private  void inApp(){

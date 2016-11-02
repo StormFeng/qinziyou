@@ -29,7 +29,7 @@ public class DentistDetailShareDialog extends Dialog implements View.OnClickList
     private ShareDialogActionListenr listener;
     private UMengShareUtil mShareUtil;
     public static String defaultContent = "分享给好友";
-    public static String defaultTitle = "未来宝贝";
+    public static String defaultTitle = "萌主";
     public static String defaultTitleUrl = "";
     public static String defaultImg = "";
     private String fileToPath;
@@ -99,7 +99,7 @@ public class DentistDetailShareDialog extends Dialog implements View.OnClickList
     private void initShareUtil() {
         mShareUtil = UMengShareUtil.getInstance((Activity) context);
         mShareUtil.setUMengShareUtilListener(mUMengShareUtilListener);
-        mImageContent.setAppName("未来宝贝");
+        mImageContent.setAppName("萌主");
 //        mImageContent.setImage(defaultImg);// 分享的图片
          mImageContent.setmBitmap(BitmapFactory.decodeResource(context.getResources(),
             R.drawable.ic_launcher));// 传本地图片如果没一定传null

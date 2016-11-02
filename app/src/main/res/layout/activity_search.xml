@@ -45,7 +45,6 @@
                   android:textColor="@drawable/tag_text_color"/>
             <com.midian.qzy.widget.tagflowlayout.TagFlowLayout
                 android:id="@+id/tag_time"
-                app:gravity="right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </com.midian.qzy.widget.tagflowlayout.TagFlowLayout>
@@ -73,40 +72,40 @@
                 android:textColor="@drawable/tag_text_color"/>
             <com.midian.qzy.widget.tagflowlayout.TagFlowLayout
                 android:id="@+id/tag_type"
-                app:gravity="right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </com.midian.qzy.widget.tagflowlayout.TagFlowLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="10dp">
-            <CheckBox
-                android:id="@+id/cb_age"
-                android:layout_width="70dp"
-                android:layout_height="26.9dp"
-                android:layout_margin="3.8dp"
-                android:background="@drawable/search_checkbox_bg"
-                android:button="@null"
-                android:text="不限年龄"
-                android:textSize="13.5sp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"
-                android:textColor="@drawable/tag_text_color"/>
-            <com.midian.qzy.widget.tagflowlayout.TagFlowLayout
-                android:id="@+id/tag_age"
-                app:gravity="right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </com.midian.qzy.widget.tagflowlayout.TagFlowLayout>
-        </LinearLayout>
-        <LinearLayout
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp">
+                <CheckBox
+                    android:id="@+id/cb_age"
+                    android:layout_width="70dp"
+                    android:layout_height="26.9dp"
+                    android:layout_margin="3.8dp"
+                    android:background="@drawable/search_checkbox_bg"
+                    android:button="@null"
+                    android:text="不限年龄"
+                    android:textSize="13.5sp"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textColor="@drawable/tag_text_color"/>
+                <com.midian.qzy.widget.tagflowlayout.TagFlowLayout
+                    android:id="@+id/tag_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </com.midian.qzy.widget.tagflowlayout.TagFlowLayout>
+            </LinearLayout>
+
+            <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,7 +128,6 @@
             android:textColor="@drawable/tag_text_color"/>
         <com.midian.qzy.widget.tagflowlayout.TagFlowLayout
             android:id="@+id/tag_position"
-            app:gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </com.midian.qzy.widget.tagflowlayout.TagFlowLayout>

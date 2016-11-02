@@ -135,7 +135,7 @@ public class Fragment_ActivityDetai1 extends BaseFragment implements ApiCallback
     public void getLocation() {
         if (ActivityCompat.checkSelfPermission(_activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(_activity, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                UIHelper.t(_activity, "请在权限设置中允许未来宝贝使用定位");
+                UIHelper.t(_activity, "请在权限设置中允许萌主使用定位");
             } else {
                 ActivityCompat.requestPermissions(_activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 3001);
             }
@@ -241,7 +241,7 @@ public class Fragment_ActivityDetai1 extends BaseFragment implements ApiCallback
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         if (ActivityCompat.checkSelfPermission(_activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                             if (ActivityCompat.shouldShowRequestPermissionRationale(_activity, Manifest.permission.CALL_PHONE)) {
-                                UIHelper.t(_activity, "请在权限设置中允许未来宝贝拨打电话");
+                                UIHelper.t(_activity, "请在权限设置中允许萌主拨打电话");
                             } else {
                                 ActivityCompat.requestPermissions(_activity, new String[]{Manifest.permission.CALL_PHONE}, 4001);
                             }

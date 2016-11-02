@@ -177,14 +177,14 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     startActionCamera();
                 } else {
-                    UIHelper.t(_activity, "已禁止未来宝贝使用相机");
+                    UIHelper.t(_activity, "已禁止萌主使用相机");
                 }
             case 1002:
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
 //                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
                     ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.CAMERA}, 1001);
                 }else{
-                    UIHelper.t(_activity,"已禁止未来宝贝读取照片");
+                    UIHelper.t(_activity,"已禁止萌主读取照片");
                 }
                 break;
         }
@@ -208,7 +208,7 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
                         Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
                         if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
                                 Manifest.permission.CAMERA)) {
-                            UIHelper.t(_activity,"请在权限设置中允许未来宝贝使用相机");
+                            UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
                         } else {
                             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
 //                            ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);

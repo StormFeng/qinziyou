@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pushservice-5.2.0.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/baidu_Push_SDK_library_project/libs/pushservice-5.2.0.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
