@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="70dp"
+    android:layout_height="26.9dp"
+    android:layout_margin="3.8dp"
+    android:textSize="13.5sp"
+    android:background="@drawable/search_checkbox_bg"
+    android:text="Helloworld"
+    android:gravity="center"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    android:textColor="@drawable/tag_text_color">
+</TextView>

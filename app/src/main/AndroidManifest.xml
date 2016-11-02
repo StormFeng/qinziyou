@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.midian.qzy">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.autofocus"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <!-- 百度地图 -->
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!-- 百度定位 -->
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!-- ###################友盟 ################### -->
+    <!-- ###################声明SDK使用的相关权限###################### -->
+    <!-- 获取mac地址作为用户的备用唯一标识 -->    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户 -->    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application
+        android:name="com.midian.qzy.app.MAppContext"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme1"
+        tools:replace="@android:name,theme,icon,label">
+        <activity
+            android:name=".ui.ActivityWelcom"
+            android:configChanges="locale"
+            android:launchMode="singleTop"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--消息详情-->
+        <activity
+            android:name="com.midian.qzy.ui.MessageDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--主页面-->
+        <activity android:name=".ui.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--欢迎页-->
+        <activity android:name=".ui.ActivityGuide"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--支付宝支付-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <!--微信分享回调-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--微信支付回调-->
+        <activity
+            android:name="com.midian.qzy.wxapi.WXPayEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--首页筛选页面-->
+        <activity
+            android:name="com.midian.qzy.ui.home.SearchActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--活动详情页面-->
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivityContent"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivitySignUp"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
+        <!--修改姓名-->
+        <activity
+            android:name="com.midian.qzy.ui.myaccount.ChangeNameActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--修改密码-->
+        <activity
+            android:name="com.midian.qzy.ui.myaccount.ChangePasswordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--备注-->
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivityCommitNote"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!--评论页面-->
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivityCommitComment"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivitySearchResult"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/Theme.DialogActivity"
+            android:name="com.midian.qzy.ui.home.PhotoViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.midian.qzy.ui.myaccount.ChooseSexActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivityPay_N"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.midian.qzy.ui.home.ActivityPay_Y"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:configChanges="orientation|screenSize"
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />
+        <!--<activity-->
+            <!--android:name="com.midian.qzy.ui.home.ViewPhotoActivity"-->
+            <!--android:launchMode="singleTop"-->
+            <!--android:screenOrientation="portrait"/>-->
+
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity" />
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            />
+        <activity android:name="com.midian.qzy.ui.home.ActivityDetail"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+    </application>
+</manifest>

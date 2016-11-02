@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.midian.qzy.widget.Banner
+            android:id="@+id/bannerView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:indicator_height="7dp"
+            app:indicator_margin="3dp"
+            app:indicator_width="7dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+            <EditText
+                android:id="@+id/et_Search"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="13sp"
+                android:focusable="true"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:hint="搜索目的地、关键字、年龄等"
+                android:drawableLeft="@drawable/icon_search"
+                android:layout_centerInParent="true"
+                android:paddingLeft="10dp"
+                android:drawablePadding="10dp"
+                android:imeOptions="actionSearch"
+                android:background="@drawable/radius_bg_bluestroke"/>
+            <View
+                android:id="@+id/v_Search"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:background="@color/alpha"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_Job"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_11"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/transparent"/>
+        <ImageView
+            android:id="@+id/iv_Week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_22"/>
+    </LinearLayout>
+</LinearLayout>

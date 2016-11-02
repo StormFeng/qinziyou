@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <midian.baselib.widget.BaseLibTopbarView
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/tv_Time"
+            android:lineSpacingExtra="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2015-2-2"
+            android:textSize="11sp"
+            android:textColor="@color/text_bg66"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/tv_Intro"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="消息介绍"/>
+        <TextView
+            android:id="@+id/tv_Content"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="消息内容详情"/>
+
+    </LinearLayout>
+
+</LinearLayout>

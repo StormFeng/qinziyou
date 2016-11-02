@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!--<item name="android:windowBackground">@color/window_bg</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    <!--</style>-->
+    <style name="add_dialog" parent="@android:style/Theme.Dialog">
+    <item name="android:windowFrame">@null</item><!-- 边框 -->
+    <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowIsTranslucent">true</item><!-- 半透明 -->
+    <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+    <item name="android:background">@color/alpha</item>
+    <item name="android:windowBackground">@color/alpha</item><!-- 自己想要的背景 -->
+    <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->
+</style>
+    <style name="AppBaseTheme1" parent="android:Theme.Light.NoTitleBar"></style>
+    <style name="AppTheme1" parent="AppBaseTheme1">
+        <item name="android:windowBackground">@color/window_bg</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Theme.DialogActivity" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/bg_dialogactivity</item>
+    </style>
+</resources>

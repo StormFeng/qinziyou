@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="red">#ffEB6563</color>
+    <color name="my_appraise">#FFF77F7F</color>
+    <color name="blue">#FF51BBFA</color>
+    <color name="blue_tv">#FF21A3F0</color>
+    <color name="lable_text_bg">#FF338ABD</color>
+    <color name="lable_bg">#22338ABD</color>
+    <color name="tab_p_bg">#FF2C3E50</color>
+    <color name="tab_n_bg">#BCC2C7</color>
+    <color name="contrast_bg">#FF0076FF</color>
+    <color name="comment_bg2">#FFF9AC83</color>
+    <color name="comment_bg3">#FFB0B0B0</color>
+    <!-- 主体文字颜色 -->
+    <color name="text_bg20">#FF202020</color>
+    <color name="text_bg00">#FFFFFFFF</color>
+    <color name="text_bg60">#FF606060</color>
+    <color name="text_bg90">#FF909090</color>
+    <color name="text_bgb0">#FFb0b0b0</color>
+    <color name="text_red">#FFE26461</color>
+    <!-- 灰色 -->
+    <color name="grey">#cccccc</color>
+    <color name="search_tv_bg">#FFEEEEEE</color>
+    <color name="canshu_bg" >#FFE9E9E9</color>
+    <color name="reset_bg">#FF979797</color>
+    <color name="edit_bg">#FFFBFBFB</color>
+    <!-- 橙色按钮背景点击颜色 -->
+    <color name="orange_button">#FFF49A00</color>
+
+    <color name="blue_qzy">#4A90E2</color>
+</resources>
