@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 背景颜色 #F3F5F7 212936 -->
+    <color name="window_bg">#f4f4f4</color>
+    <!--标题白色背景-->
+    <color name="topbar_bg">#FFFFFF</color>
+    <!--分隔线灰色背景-->
+    <color name="divide_line">#eeeeee</color>
+    <!-- 主标题色 -->
+    <color name="topic_text">#FF909090</color>
+    <!--蓝色-->
+    <color name="topic">#47a0db</color>
+    <color name="white">#ffffff</color>
+    <!--蓝色-->
+    <color name="lime">#47a0db</color>
+    <!-- 标题黑色字 -->
+    <color name="topbar_text">#000000</color>
+
+    <!-- 主体文字颜色 -->
+    <color name="text_bg33">#FF333333</color>
+    <color name="text_bg22">#FF222222</color>
+    <color name="text_bg20">#FF202020</color>
+    <color name="text_bg66">#FF666666</color>
+    <color name="text_bg90">#FF909090</color>
+    <color name="text_bg99">#FF999999</color>
+    <color name="text_bgb0">#FFb0b0b0</color>
+    <color name="text_red">#FFE26461</color>
+
+    <color name="qzy">#2247a0db</color>
+    <color name="blue_qzy">#4A90E2</color>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+
+
+    <midian.baselib.widget.CircleImageView
+        android:id="@+id/head_cv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/head1"/>
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.5dp"
+        android:text="赵默笙"
+        android:textColor="@color/text_bg66"
+        android:textSize="13.4sp"/>
+
+    <TextView
+        android:id="@+id/check_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_rectangle_bg"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:text="选TA"
+        android:textColor="#FF030303"
+        android:textSize="15.4sp"/>
+    </LinearLayout>
+</LinearLayout>

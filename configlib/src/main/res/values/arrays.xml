@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="select_filter_btns">
+        <item name="btn1">全部</item>
+        <item name="btn2">载体类型</item>
+        <item name="btn3">租/售</item>
+    </array>
+
+</resources>
