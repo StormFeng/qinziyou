@@ -45,7 +45,7 @@ public class ActivityDetailBean extends NetResult {
         private String activity_address;
         private String activity_address_lon;
         private String activity_address_lat;
-
+        private String is_adult_record;
         private String contact_address;
         private String contact_address_lon;
         private String contact_address_lat;
@@ -57,6 +57,14 @@ public class ActivityDetailBean extends NetResult {
         private String detail;
         private String is_join;
         private List<String> pics;
+
+        public String getIs_adult_record() {
+            return is_adult_record;
+        }
+
+        public void setIs_adult_record(String is_adult_record) {
+            this.is_adult_record = is_adult_record;
+        }
 
         public String getActivity_id() {
             return activity_id;

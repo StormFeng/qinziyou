@@ -250,7 +250,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
 
                                 @Override
                                 public void onApiSuccess(NetResult res, String tag) {
-                                    UIHelper.t(_activity, res.ret_info);
+                                    UIHelper.t(_activity, "您的加盟申请已收到，我们会尽快安排专员联系您!");
                                     switchFragment(homeFragment);
                                     topbar.setLeftImageButton(R.drawable.icon_menu, listener_1);
                                     topbar.setTitle("萌主").setLeftText("", null);

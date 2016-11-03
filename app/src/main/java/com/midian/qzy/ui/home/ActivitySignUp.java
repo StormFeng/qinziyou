@@ -71,11 +71,14 @@ public class ActivitySignUp extends BaseActivity implements TextWatcher {
     TextView tvChildPrice;
     @BindView(R.id.ll_Pay)
     LinearLayout llPay;
+    @BindView(R.id.ll_Old)
+    LinearLayout llOld;
 
     private String pay_way = "alipay";
     private String activity_id;
     private String OldPrice;
     private String ChildPrice;
+    private String isCount;//大人是否计数, 1计数  0不计数
     private String text;
     private static final String APP_ID = com.midian.UMengUtils.Constant.weixinAppId;
     private IWXAPI api;
@@ -91,9 +94,14 @@ public class ActivitySignUp extends BaseActivity implements TextWatcher {
         ChildPrice = mBundle.getString("ChildPrice");
         activity_id = mBundle.getString("activity_id");
         text = mBundle.getString("text");
+        isCount=mBundle.getString("isCount");
         btnPay.setText(text);
         if ("免费参加".equals(text)) {
             llPay.setVisibility(View.GONE);
+        }
+        if("0".equals(isCount)){
+            OldPrice="0.0";
+            llOld.setVisibility(View.GONE);
         }
         tvOldPrice.setText(OldPrice + "元");
         tvChildPrice.setText(ChildPrice + "元");
@@ -169,6 +177,9 @@ public class ActivitySignUp extends BaseActivity implements TextWatcher {
                 }
                 api = WXAPIFactory.createWXAPI(_activity, APP_ID, true);
                 api.registerApp(APP_ID);
+                if("0".equals(isCount)){
+                    adult_count="0";
+                }
                 AppUtil.getPpApiClient(ac).joinActivity(ac.user_id, activity_id, adult_count, child_count, contact_person, contact_num, pay_way, this);
                 btnPay.setClickable(false);
                 break;
@@ -230,13 +241,13 @@ public class ActivitySignUp extends BaseActivity implements TextWatcher {
                 request.timeStamp = bean.getContent().getWeixin_param().getTimestamp();
                 request.sign = bean.getContent().getWeixin_param().getSign();
                 api.sendReq(request);
-            } else{
-                UIHelper.t(_activity,"报名成功");
+            } else {
+                UIHelper.t(_activity, "报名成功");
                 setResult(RESULT_OK);
                 finish();
             }
-        }else{
-            ac.handleErrorCode(_activity,res.ret_info);
+        } else {
+            ac.handleErrorCode(_activity, res.ret_info);
             btnPay.setClickable(true);
         }
     }

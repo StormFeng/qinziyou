@@ -132,9 +132,11 @@ public class SearchActivity extends BaseActivity implements CompoundButton.OnChe
         times.add("今天");
         times.add("明天");
         times.add("周末");
+        times.add("已结束");
         timeIds.add("today");
         timeIds.add("tomorrow");
         timeIds.add("weekend");
+        timeIds.add("old");
 
         positions.add("5Km");
         positions.add("10Km");

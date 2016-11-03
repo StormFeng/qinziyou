@@ -50,6 +50,7 @@ public class ActivityContent extends BaseFragmentActivity {
     private String content;
     private String OldPrice;
     private String ChildPrice;
+    private String isCount;//大人是否计数
     private List<Fragment> list=new ArrayList<>();
     private List<String> params=new ArrayList<>();
     private int flag=0;//用于控制viewpager添加次数
@@ -86,6 +87,7 @@ public class ActivityContent extends BaseFragmentActivity {
         }
 //        String s=btnSignup.getText().toString().trim();
         Bundle bundle=new Bundle();
+        bundle.putString("isCount",isCount);
         bundle.putString("OldPrice",OldPrice);
         bundle.putString("ChildPrice",ChildPrice);
         bundle.putString("activity_id",activity_id);
@@ -126,6 +128,7 @@ public class ActivityContent extends BaseFragmentActivity {
             content = bean.getContent().getOrganization_name();
             OldPrice = bean.getContent().getAdult_price();
             ChildPrice = bean.getContent().getChild_price();
+            isCount = bean.getContent().getIs_adult_record();
             if ("1".equals(isJoin)) {
                 btnSignup.setText("已经报名");
                 btnSignup.setBackgroundColor(_activity.getResources().getColor(R.color.text_bg90));

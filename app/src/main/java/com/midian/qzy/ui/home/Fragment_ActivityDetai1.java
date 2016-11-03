@@ -183,7 +183,7 @@ public class Fragment_ActivityDetai1 extends BaseFragment implements ApiCallback
             tvChildPrice.setText(ChildPrice);
             tvContactPerson.setText(bean.getContent().getContact_person());
             tvContactNum.setText(bean.getContent().getContact_num());
-            tvContactAddress.setText(bean.getContent().getContact_address());
+            tvContactAddress.setText(bean.getContent().getActivity_address());
             tvJoinLimit.setText(bean.getContent().getJoin_limit_count());
             tvJoinCount.setText(bean.getContent().getJoin_count());
             String begin_time = bean.getContent().getBegin_time();
