@@ -109,7 +109,6 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.ll_name:
-//                bundle.putString("type", "name");
                 intent.putExtra("type", "name");
                 intent.setClass(_activity, ChangeNameActivity.class);
                 this.startActivityForResult(intent, CHANGE_NAME);
@@ -130,7 +129,6 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
                 break;
             case R.id.btn_Cancel:
                 if("立即登录".equals(btnCancel.getText().toString().trim())){
-//                    UIHelper.jumpForResult(_activity,LoginActivity.class,6001);
                     this.startActivityForResult(new Intent(_activity,LoginActivity.class),6001);
                 }else{
                     final Dialog dialog=new Dialog(_activity,R.style.add_dialog);
@@ -174,15 +172,17 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case 1001:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startActionCamera();
+                Log.d("wqf","申请相机");
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                        startActionCamera();
                 } else {
-                    UIHelper.t(_activity, "已禁止萌主使用相机");
+                    UIHelper.t(_activity, "已禁止萌主使用相机或读取照片");
                 }
+                break;
             case 1002:
+                Log.d("wqf","申请照片");
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
-                    ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.CAMERA}, 1001);
+                    startImagePick();
                 }else{
                     UIHelper.t(_activity,"已禁止萌主读取照片");
                 }
@@ -196,23 +196,26 @@ public class MyAccountFragment extends BaseFragment implements View.OnClickListe
         dialog.setListner(new PicChooserDialog.OnPicChooserListener() {
             @Override
             public void onClickFromGallery(View view) {
-                startImagePick();
+                if(Build.VERSION.SDK_INT >= 23){
+                    if (ContextCompat.checkSelfPermission(_activity,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
+                    } else {
+                        startImagePick();
+                    }
+                }else{
+                    startImagePick();
+                }
             }
 
             @Override
             public void onClickFromCamera(View view) {
-
                 if(Build.VERSION.SDK_INT >= 23){
                     if (ContextCompat.checkSelfPermission(_activity,
-                            Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
-                                Manifest.permission.CAMERA)) {
-                            UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
-                        } else {
-                            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
-//                            ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
-                        }
+                            Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                            || ContextCompat.checkSelfPermission(_activity,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE}, 1001);
                     } else {
                         startActionCamera();
                     }

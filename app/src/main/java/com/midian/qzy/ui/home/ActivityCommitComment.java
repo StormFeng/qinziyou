@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 import id.zelory.compressor.Compressor;
+import me.iwf.photopicker.PhotoPreview;
 import me.nereo.multi_image_selector.MultiImageSelector;
 import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 import midian.baselib.base.BaseActivity;
@@ -102,14 +103,16 @@ public class ActivityCommitComment extends BaseActivity{
             iv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle bundle=new Bundle();
-                    bundle.putString("Uri",nSelectPath.get(position));
-                    bundle.putString("flag","ActivityCommitComment");
-                    UIHelper.jump(_activity,PhotoViewActivity.class,bundle);
-//                    ArrayList<String> list=new ArrayList();
-//                    list.add(nSelectPath.get(position));
-//                    bundle.putStringArrayList("pic",list);
-//                    UIHelper.jump(_activity,ViewPhotoActivity.class,bundle);
+//                    Bundle bundle=new Bundle();
+//                    bundle.putString("Uri",nSelectPath.get(position));
+//                    bundle.putString("flag","ActivityCommitComment");
+//                    UIHelper.jump(_activity,PhotoViewActivity.class,bundle);
+                    Log.d("wqf",nSelectPath.get(position));
+                    PhotoPreview.builder()
+                            .setPhotos(nSelectPath)
+                            .setCurrentItem(position)
+                            .setShowDeleteButton(false)
+                            .start(_activity);
                 }
             });
             iv_del.setOnClickListener(new View.OnClickListener() {
@@ -179,12 +182,12 @@ public class ActivityCommitComment extends BaseActivity{
         if(Build.VERSION.SDK_INT >= 23){
             if (ContextCompat.checkSelfPermission(_activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
-                if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
-                        Manifest.permission.CAMERA)) {
-                    UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
-                } else {
+//                if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
+//                        Manifest.permission.CAMERA)) {
+//                    UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
+//                } else {
                     ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1003);
-                }
+//                }
             } else {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, this.getCameraTempFile());

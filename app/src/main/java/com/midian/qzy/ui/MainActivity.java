@@ -57,40 +57,40 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
         AppUtil.getMAppContext(ac).startPush();
         initmenu();
         initFragment();
-        if(Build.VERSION.SDK_INT >= 23){
-            if (ContextCompat.checkSelfPermission(_activity,
-                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
-                if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
-                        Manifest.permission.CAMERA)) {
-//                    UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
-                } else {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1002);
-                }
-            }
-        }
+//        if(Build.VERSION.SDK_INT >= 23){
+//            if (ContextCompat.checkSelfPermission(_activity,
+//                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
+//                if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
+//                        Manifest.permission.CAMERA)) {
+////                    UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
+//                } else {
+//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1002);
+//                }
+//            }
+//        }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case 1001:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    UIHelper.t(_activity, "已允许萌主使用相机");
-                } else {
-                    UIHelper.t(_activity, "已禁止萌主读取照片");
-                }
-            case 1002:
-                if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
-                    ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1001);
-                }else{
-                    UIHelper.t(_activity,"已禁止萌主使用相机");
-                }
-                break;
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        switch (requestCode) {
+//            case 1001:
+//                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+////                    UIHelper.t(_activity, "已允许萌主使用相机");
+//                } else {
+//                    UIHelper.t(_activity, "已禁止萌主读取照片");
+//                }
+//            case 1002:
+//                if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
+////                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
+//                    ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1001);
+//                }else{
+//                    UIHelper.t(_activity,"已禁止萌主使用相机");
+//                }
+//                break;
+//        }
+//    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -240,7 +240,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
                             AppUtil.getPpApiClient(ac).organizationJoinApply(name, null, contact_person, contact_num, contact_address, null, InstitutionFragment.mFile, remark, new ApiCallback() {
                                 @Override
                                 public void onApiStart(String tag) {
-
+                                    showLoadingDlg();
                                 }
 
                                 @Override
@@ -250,6 +250,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
 
                                 @Override
                                 public void onApiSuccess(NetResult res, String tag) {
+                                    hideLoadingDlg();
                                     UIHelper.t(_activity, "您的加盟申请已收到，我们会尽快安排专员联系您!");
                                     switchFragment(homeFragment);
                                     topbar.setLeftImageButton(R.drawable.icon_menu, listener_1);

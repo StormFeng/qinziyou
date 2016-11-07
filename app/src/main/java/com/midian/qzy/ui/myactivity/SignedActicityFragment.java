@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 
 import com.midian.qzy.R;
 import com.midian.qzy.datasource.SignedActivityDataResource;
+import com.midian.qzy.itemtpl.SignedActivityBotTpl;
 import com.midian.qzy.itemtpl.SignedActivityTpl;
 
 import java.util.ArrayList;
 
 import midian.baselib.base.BaseFragment;
 import midian.baselib.base.BaseListFragment;
+import midian.baselib.base.BaseMultiTypeListFragment;
 import midian.baselib.shizhefei.view.listviewhelper.IDataAdapter;
 import midian.baselib.shizhefei.view.listviewhelper.IDataSource;
 
@@ -21,7 +23,7 @@ import midian.baselib.shizhefei.view.listviewhelper.IDataSource;
  * Created by Administrator on 2016/7/18 0018.
  * 已报名活动页
  */
-public class SignedActicityFragment extends BaseListFragment{
+public class SignedActicityFragment extends BaseMultiTypeListFragment{
 
     private int flag=0;
 
@@ -42,9 +44,17 @@ public class SignedActicityFragment extends BaseListFragment{
     }
 
     @Override
-    protected Class getTemplateClass() {
-        return SignedActivityTpl.class;
+    protected ArrayList<Class> getTemplateClasses() {
+        ArrayList<Class> tpls=new ArrayList<>();
+        tpls.add(SignedActivityTpl.class);
+        tpls.add(SignedActivityBotTpl.class);
+        return tpls;
     }
+
+//    @Override
+//    protected Class getTemplateClass() {
+//        return SignedActivityTpl.class;
+//    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

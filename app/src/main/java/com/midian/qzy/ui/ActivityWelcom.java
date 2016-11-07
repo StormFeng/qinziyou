@@ -110,9 +110,16 @@ public class ActivityWelcom extends BaseActivity implements OnClickListener {
         super.onClick(v);
         v.setEnabled(false);
         timer.cancel();
-        UIHelper.jump(ActivityWelcom.this, MainActivity.class);
-        ac.setBoolean("app", true);
+        if (ac.getBoolean("app")) {
+            UIHelper.jump(ActivityWelcom.this, MainActivity.class);
+        } else {
+            ac.setBoolean("app", true);
+            UIHelper.jump(ActivityWelcom.this, ActivityGuide.class);
+        }
         finish();
+//        UIHelper.jump(ActivityWelcom.this, MainActivity.class);
+//        ac.setBoolean("app", true);
+//        finish();
     }
 
     private  void inApp(){

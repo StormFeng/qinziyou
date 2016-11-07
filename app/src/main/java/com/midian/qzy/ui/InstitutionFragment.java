@@ -86,14 +86,16 @@ public class InstitutionFragment extends BaseFragment implements View.OnClickLis
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case 1001:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("wqf","申请相机");
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     startActionCamera();
                 } else {
-                    UIHelper.t(_activity, "已禁止萌主使用相机");
+                    UIHelper.t(_activity, "已禁止萌主使用相机或读取照片");
                 }
+                break;
             case 1002:
+                Log.d("wqf","申请照片");
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
                     startImagePick();
                 }else{
                     UIHelper.t(_activity,"已禁止萌主读取照片");
@@ -111,37 +113,23 @@ public class InstitutionFragment extends BaseFragment implements View.OnClickLis
                 if(Build.VERSION.SDK_INT >= 23){
                     if (ContextCompat.checkSelfPermission(_activity,
                             Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
-                                Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                            UIHelper.t(_activity,"请在权限设置中允许萌主读取权限");
-                        } else {
-                            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
-//                            ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
-                        }
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
                     } else {
                         startImagePick();
                     }
                 }else{
                     startImagePick();
                 }
-//                startImagePick();
             }
 
             @Override
             public void onClickFromCamera(View view) {
-//                startActionCamera();
                 if(Build.VERSION.SDK_INT >= 23){
                     if (ContextCompat.checkSelfPermission(_activity,
-                            Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        Log.d("wqf","ContextCompat.checkSelfPermission----------NO");
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(_activity,
-                                Manifest.permission.CAMERA)) {
-                            UIHelper.t(_activity,"请在权限设置中允许萌主使用相机");
-                        } else {
-                            requestPermissions(new String[]{Manifest.permission.CAMERA}, 1001);
-//                            ActivityCompat.requestPermissions(_activity,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
-                        }
+                            Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                            || ContextCompat.checkSelfPermission(_activity,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE}, 1001);
                     } else {
                         startActionCamera();
                     }
@@ -246,9 +234,8 @@ public class InstitutionFragment extends BaseFragment implements View.OnClickLis
                 case ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA:
 //                    startActionCrop(origUri);// 拍照后裁剪
                     try {
-                        Log.d("wqf","try");
                         bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), origUri);
-                        outputBitmap(bitmap, ImageUtils.getAbsoluteImagePath(_activity,origUri));
+                        outputBitmap(bitmap, ImageUtils.getImagePath(origUri,_activity));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -274,10 +261,11 @@ public class InstitutionFragment extends BaseFragment implements View.OnClickLis
     }
 
     public void outputBitmap(Bitmap bitmap, String path) {
-
-        Log.d("wqf","outputBitmap");
         ivPic.setImageBitmap(bitmap);
         tvPic.setVisibility(View.GONE);
-        mFile = new File(path);
+        Log.d("wqf",path);
+        String s=path.replace("file://","");
+        Log.d("wqf",s);
+        mFile = new File(s);
     }
 }

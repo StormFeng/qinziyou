@@ -54,6 +54,25 @@ public class MyActivitiesBean extends NetResult {
         private String activity_address;
         private String activity_address_lon;
         private String activity_address_lat;
+        private String adult_count;
+
+        public String getAdult_count() {
+            return adult_count;
+        }
+
+        public void setAdult_count(String adult_count) {
+            this.adult_count = adult_count;
+        }
+
+        public String getChild_count() {
+            return child_count;
+        }
+
+        public void setChild_count(String child_count) {
+            this.child_count = child_count;
+        }
+
+        private String child_count;
 
         public String getActivity_id() {
             return activity_id;

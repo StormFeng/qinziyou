@@ -6,4 +6,8 @@
     <string name="ptn_the_first"></string>
     <string name="ptn_release_to_previous"></string>
     <string name="ptn_pull_down_to_previous"></string>
+
+
+    <string name="notice"><font color="#333333">温馨提示：</font>如果您确认无法参加活动（需要取消报名），请在活动开始前一天联系我们020-28175916</string>
+
 </resources>
